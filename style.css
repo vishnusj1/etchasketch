@@ -1,0 +1,213 @@
+@font-face {
+    font-family: Lazer84;
+    src: url(fonts/Lazer84.ttf);
+}
+
+ :root {
+    --primary-color: #0a192f;
+    --secondary-color: #01FFF4;
+    --pink: #FF1178;
+    --green: #7CFF01;
+    --yellow: #FFF205;
+    --m-t-b: 20px 0px;
+}
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    font-family: Lazer84;
+}
+
+main {
+    height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100px;
+}
+
+h1 {
+    display: block;
+    padding: 10px;
+    font-family: Lazer84;
+    text-decoration-line: underline;
+    transition: all 0.5s;
+    transform: skewY(-5deg) scale(0.9);
+    text-shadow: 4px 4px var(--pink);
+    animation: shadow-play 2s ease-in-out infinite;
+}
+
+@keyframes shadow-play {
+    0% {
+        text-shadow: 4px 4px var(--pink);
+    }
+    50% {
+        text-shadow: 6px 6px var(--pink);
+    }
+    100% {
+        text-shadow: 4px 4px var(--pink);
+    }
+}
+
+h1:hover {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: default;
+    transform: skewY(0deg) scale(1);
+    text-shadow: 2px 2px var(--secondary-color);
+    color: var(--pink);
+    animation: h1-effect 2s ease 1;
+}
+
+@keyframes h1-effect {
+    0% {
+        letter-spacing: 2px;
+        text-shadow: 0 var(--secondary-color);
+    }
+    50% {
+        letter-spacing: 4px;
+        text-shadow: 4px 4px var(--secondary-color);
+    }
+    100% {
+        letter-spacing: normal;
+        text-shadow: 2px 2px var(--secondary-color);
+    }
+}
+
+input[type="button"] {
+    font-family: Lazer84;
+    border: 1px solid var(--secondary-color);
+    color: var(--secondary-color);
+    padding: 8px 15px;
+    margin: 5px 10px;
+    background-color: var(--primary-color);
+    transform: scale(0.95);
+    transition: 0.3s;
+}
+
+input[type="button"]:hover {
+    cursor: pointer;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+input[type="button"].toggle-on {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    transform: scale(1);
+    animation: blink 0.3s ease 1;
+}
+
+@keyframes blink {
+    0% {
+        color: var(--pink);
+        box-shadow: 2px 2px var(--pink);
+    }
+    50% {
+        color: var(--pink);
+        box-shadow: 6px 6px var(--pink);
+    }
+    100% {
+        color: var(--pink);
+        box-shadow: 2px 2px var(--pink);
+    }
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    background: var(--secondary-color);
+    height: 5px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 15px;
+    width: 15px;
+    background: var(--primary-color);
+    margin-top: -5px;
+    border-radius: 50%;
+}
+
+.wrapper {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.controls {
+    width: 100vw;
+    height: 100px;
+    margin: var(--m-t-b);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.colors {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.grid-tools {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.grid-container-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    width: 500px;
+    background-color: var(--secondary-color);
+    animation: shadow-zoom-effect 3s ease infinite;
+}
+
+@keyframes shadow-zoom-effect {
+    0% {
+        box-shadow: 2px 2px var(--secondary-color);
+    }
+    50% {
+        box-shadow: 6px 6px var(--secondary-color);
+    }
+    100% {
+        box-shadow: 2px 2px var(--secondary-color);
+    }
+}
+
+.grid-container {
+    display: grid;
+    height: 500px;
+    width: 500px;
+    background-color: white;
+    user-select: none;
+    -webkit-user-drag: none;
+    margin: var(--m-t-b);
+}
+
+.gridPixels.borderTopLeft {
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+}
